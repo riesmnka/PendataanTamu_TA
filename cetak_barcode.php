@@ -139,7 +139,7 @@ if (!$data) {
 <div class="struk">
   <div class="struk-header">
     <h2>POS KEAMANAN</h2>
-    <p>Perumahan Griya Asri</p>
+    <p>Perumahan Graha Family</p>
     <p>— TANDA MASUK —</p>
   </div>
 

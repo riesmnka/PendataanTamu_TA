@@ -16,9 +16,9 @@ if (!$nama_tamu || !$rumah_id || !$no_kendaraan || !$keperluan) {
   exit;
 }
 
-$query_count = mysqli_query($conn, "SELECT COUNT(*) as total FROM kunjungan");
-$count = mysqli_fetch_assoc($query_count)['total'];
-$kode = 'T-' . str_pad($count + 1, 5, '0', STR_PAD_LEFT);
+$query_max = mysqli_query($conn, "SELECT MAX(id) as max_id FROM kunjungan");
+$max = mysqli_fetch_assoc($query_max)['max_id'];
+$kode = 'T-' . str_pad(($max ?? 0) + 1, 5, '0', STR_PAD_LEFT);
 
 $query = mysqli_prepare($conn, "INSERT INTO kunjungan 
   (kode_kunjungan, nama_tamu, no_kendaraan, keperluan, rumah_id, waktu_masuk) 

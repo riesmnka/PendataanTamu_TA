@@ -48,7 +48,10 @@ $query_rumah = mysqli_query($conn, "SELECT * FROM rumah ORDER BY nomor_rumah ASC
 
     <div class="form-group">
       <label>No. Kendaraan *</label>
-      <input type="text" name="no_kendaraan" placeholder="Contoh: L 1234 AB" required>
+      <input type="text" name="no_kendaraan" id="no_kendaraan" placeholder="Contoh: L 1234 AB" style="text-transform:uppercase" required>
+      <small id="plat-error" style="color:red; display:none">
+        Format plat tidak valid. Contoh: L 1234 AB
+      </small>
     </div>
 
     <button type="submit" class="btn btn-primary">Simpan & Cetak Barcode</button>
@@ -56,5 +59,24 @@ $query_rumah = mysqli_query($conn, "SELECT * FROM rumah ORDER BY nomor_rumah ASC
 
   </form>
 </div>
+
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+  const plat = document.getElementById('no_kendaraan').value.trim().toUpperCase();
+  const error = document.getElementById('plat-error');
+  const regex = /^[A-Z]{1,2}\s\d{1,4}\s[A-Z]{1,3}$/;
+
+  if (!regex.test(plat)) {
+    error.style.display = 'block';
+    e.preventDefault();
+  } else {
+    error.style.display = 'none';
+  }
+});
+
+document.getElementById('no_kendaraan').addEventListener('input', function() {
+  this.value = this.value.toUpperCase();
+});
+</script>
 
 <?php include 'includes/footer.php'; ?>

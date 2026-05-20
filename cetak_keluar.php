@@ -130,7 +130,7 @@ $durasi_text = $durasi->h . ' jam ' . $durasi->i . ' menit';
 <div class="struk">
   <div class="struk-header">
     <h2>POS KEAMANAN</h2>
-    <p>Perumahan Griya Asri</p>
+    <p>Perumahan Graha Family</p>
     <p>— BUKTI KUNJUNGAN —</p>
   </div>
 
@@ -158,16 +158,12 @@ $durasi_text = $durasi->h . ' jam ' . $durasi->i . ' menit';
   <hr class="struk-divider">
 
   <div class="struk-row">
-    <span class="key">Tanggal</span>
-    <span class="val"><?php echo date('d/m/Y', strtotime($data['waktu_masuk'])); ?></span>
+    <span class="key">Masuk</span>
+    <span class="val"><?php echo date('d/m/Y H:i', strtotime($data['waktu_masuk'])); ?></span>
   </div>
   <div class="struk-row">
-    <span class="key">Jam Masuk</span>
-    <span class="val"><?php echo date('H:i', strtotime($data['waktu_masuk'])); ?></span>
-  </div>
-  <div class="struk-row">
-    <span class="key">Jam Keluar</span>
-    <span class="val"><?php echo date('H:i', strtotime($data['waktu_keluar'])); ?></span>
+    <span class="key">Keluar</span>
+    <span class="val"><?php echo date('d/m/Y H:i', strtotime($data['waktu_keluar'])); ?></span>
   </div>
   <div class="struk-row">
     <span class="key">Durasi</span>
@@ -177,7 +173,7 @@ $durasi_text = $durasi->h . ' jam ' . $durasi->i . ' menit';
   <hr class="struk-divider">
 
   <div class="struk-footer">
-    Arsip Petugas Keamanan<br>
+    Arsip Petugas Keamanan<br> 
     Barcode tidak dapat digunakan kembali
   </div>
 </div>
