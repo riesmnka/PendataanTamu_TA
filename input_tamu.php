@@ -20,16 +20,16 @@ $query_rumah = mysqli_query($conn, "SELECT * FROM rumah ORDER BY nomor_rumah ASC
       <label>Tanggal & Jam Masuk</label>
       <input type="text" value="<?php echo date('d/m/Y H:i:s'); ?>" disabled
         style="background:#f8f9fa; color:#888;">
-      <small style="color:#aaa">Otomatis tercatat saat data disimpan</small>
+      <small style="color:#aaa">Otomatis tercatat</small>
     </div>
 
     <div class="form-group">
-      <label>Nama Lengkap Tamu *</label>
+      <label>Nama Tamu </label>
       <input type="text" name="nama_tamu" placeholder="Masukkan nama tamu..." required>
     </div>
 
     <div class="form-group">
-      <label>Rumah Tujuan *</label>
+      <label>Rumah Tujuan </label>
       <select name="rumah_id" required>
         <option value="">— Pilih rumah tujuan —</option>
         <?php while ($rumah = mysqli_fetch_assoc($query_rumah)): ?>
@@ -42,19 +42,19 @@ $query_rumah = mysqli_query($conn, "SELECT * FROM rumah ORDER BY nomor_rumah ASC
     </div>
 
     <div class="form-group">
-      <label>Keperluan *</label>
+      <label>Keperluan </label>
       <input type="text" name="keperluan" placeholder="Contoh: Kunjungan keluarga, antar barang..." required>
     </div>
 
     <div class="form-group">
-      <label>No. Kendaraan *</label>
+      <label>No. Kendaraan </label>
       <input type="text" name="no_kendaraan" id="no_kendaraan" placeholder="Contoh: L 1234 AB" style="text-transform:uppercase" required>
       <small id="plat-error" style="color:red; display:none">
         Format plat tidak valid. Contoh: L 1234 AB
       </small>
     </div>
 
-    <button type="submit" class="btn btn-primary">Simpan & Cetak Barcode</button>
+    <button type="submit" class="btn btn-primary">Simpan & Cetak</button>
     <a href="/TugasAkhir/index.php" class="btn btn-secondary" style="margin-left:10px">Batal</a>
 
   </form>

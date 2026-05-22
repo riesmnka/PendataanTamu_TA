@@ -10,6 +10,8 @@ if (!$conn) {
     die('Koneksi gagal: ' . mysqli_connect_error());
 }
 
+date_default_timezone_set('Asia/Jakarta');
+
 $hapus_otomatis = mysqli_query($conn, "
     DELETE FROM kunjungan 
     WHERE status = 'done' 

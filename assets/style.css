@@ -274,3 +274,8 @@ tbody tr:hover {
 .alert-success { background: #d4edda; color: #155724; }
 .alert-error   { background: #f8d7da; color: #721c24; }
 .btn-sm { padding: 6px 12px; font-size: 12px; }
+
+.row-highlighted {
+  background: #92fff6 !important;
+  transition: background 3s;
+}

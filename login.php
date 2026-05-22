@@ -132,8 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="login-box">
   <div class="login-logo">
-    <h1>SiGaTa</h1>
-    <p>Sistem Pendataan Tamu — Pos Keamanan</p>
+    <h1>Login</h1>
+    <p>Pos Keamanan Perumahan Graha Family</p>
   </div>
 
   <?php if (isset($error)): ?>
@@ -154,14 +154,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="button" onclick="togglePassword()" 
           style="position:absolute; right:10px; top:50%; transform:translateY(-50%);
           background:none; border:none; cursor:pointer; font-size:16px; color:#888"
-          id="btn-toggle">🙈</button>
+          id="btn-toggle">🙉</button>
       </div>
     </div>
     <button type="submit" class="btn-login">Masuk</button>
   </form>
 
   <div class="login-footer">
-    Sistem Pendataan Tamu Berbasis Barcode
+    Sistem Pendataan Tamu Digital
   </div>
 </div>
 
@@ -171,10 +171,10 @@ function togglePassword() {
   const btn = document.getElementById('btn-toggle');
   if (input.type === 'password') {
     input.type = 'text';
-    btn.textContent = '🙉';
+    btn.textContent = '🙈';
   } else {
     input.type = 'password';
-    btn.textContent = '🙈';
+    btn.textContent = '🙉';
   }
 }
 </script>

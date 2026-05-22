@@ -15,8 +15,8 @@ $query_rumah = mysqli_query($conn, "SELECT COUNT(*) as total FROM rumah");
 $jml_rumah = mysqli_fetch_assoc($query_rumah)['total'];
 ?>
 
-<p class="page-title">Dashboard</p>
-<p class="page-subtitle">Ringkasan pos keamanan hari ini</p>
+<p class="page-title">Home</p>
+<p class="page-subtitle">Ringkasan data hari ini</p>
 
 <div class="stats-grid">
   <div class="stat-card cyan">

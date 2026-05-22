@@ -128,10 +128,29 @@ if (!$data) {
     .btn-secondary { background: #6c757d; color: #fff; }
 
     @media print {
-      body { background: #fff; padding: 0; display: block; }
-      .panel { display: none; }
-      .struk { border: none; width: 100%; }
+      @page {
+        width: 80mm;
+        height: auto;
+        margin: 0;
+      }
+
+    body {
+      background: #fff;
+      padding: 0;
+      margin: 0;
+      display: block;
+      width: 80mm;
     }
+
+    .panel { display: none; }
+    .struk {
+      border: none;
+      width: 80mm;
+      padding: 8px;
+      margin: 0;
+      font-size: 11px;
+    }
+  }
   </style>
 </head>
 <body>
@@ -178,7 +197,7 @@ if (!$data) {
 <div class="panel">
   <h3>🖨️ Cetak Struk Masuk</h3>
   <p style="font-size:13px; color:#888; margin-bottom:16px">
-    Berikan struk ini kepada tamu. Akan digunakan saat keluar.
+    Sebagai bukti masuk tamu.
   </p>
   <button class="btn btn-primary" onclick="window.print()">🖨️ Cetak Sekarang</button>
   <a href="/TugasAkhir/input_tamu.php" class="btn btn-secondary">+ Input Tamu Baru</a>

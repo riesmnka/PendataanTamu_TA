@@ -2,25 +2,32 @@
 include 'config/database.php';
 include 'includes/header.php';
 
-$query = mysqli_query($conn, "SELECT * FROM rumah ORDER BY nomor_rumah ASC");
+$query = mysqli_query($conn, "SELECT * FROM rumah ORDER BY CAST(nomor_rumah AS UNSIGNED) ASC");
 ?>
 
 <p class="page-title">Data Rumah</p>
-<p class="page-subtitle">Kelola daftar rumah dan pemilik di kompleks perumahan</p>
+<p class="page-subtitle">Kelola daftar dan pemilik rumah</p>
 
 <?php if (isset($_GET['status'])): ?>
   <?php if ($_GET['status'] == 'sukses'): ?>
-    <div class="alert alert-success">✅ Data rumah berhasil disimpan!</div>
+    <div class="alert alert-success">✅ Berhasil disimpan!</div>
   <?php elseif ($_GET['status'] == 'error'): ?>
-    <div class="alert alert-error">❌ Gagal menyimpan. Pastikan semua field terisi.</div>
+    <div class="alert alert-error">❌ Nomor rumah sudah ada!</div>
+  <?php elseif ($_GET['status'] == 'nama_duplikat'): ?>
+    <div class="alert alert-error">❌ Nama pemilik sudah ada!</div>
+  <?php elseif ($_GET['status'] == 'nomor_salah'): ?>
+    <div class="alert alert-error">❌ Nomor rumah tidak valid!</div>
+  <?php elseif ($_GET['status'] == 'nama_salah'): ?>
+    <div class="alert alert-error">❌ Nama pemilik tidak valid!</div>
   <?php elseif ($_GET['status'] == 'hapus'): ?>
-    <div class="alert alert-success">✅ Data rumah berhasil dihapus!</div>
+    <div class="alert alert-success">✅ Berhasil dihapus!</div>
+  <?php elseif ($_GET['status'] == 'tidak_bisa_hapus'): ?>
+    <div class="alert alert-error">❌ Masih berstatus aktif!</div>
   <?php endif; ?>
 <?php endif; ?>
 
 <div style="display:grid; grid-template-columns:1fr 320px; gap:24px; align-items:start">
 
-  <!-- Tabel daftar rumah -->
   <div class="card">
     <h3>Daftar Rumah</h3>
     <table>
@@ -29,7 +36,7 @@ $query = mysqli_query($conn, "SELECT * FROM rumah ORDER BY nomor_rumah ASC");
           <th>No. Rumah</th>
           <th>Nama Pemilik</th>
           <th>Blok</th>
-          <th>Aksi</th>
+          <th>Kelola</th>
         </tr>
       </thead>
       <tbody>
@@ -59,23 +66,22 @@ $query = mysqli_query($conn, "SELECT * FROM rumah ORDER BY nomor_rumah ASC");
     </table>
   </div>
 
-  <!-- Form tambah rumah -->
   <div class="card">
-    <h3>Tambah Rumah</h3>
+    <h3>Tambah Data</h3>
     <form action="/TugasAkhir/proses/simpan_rumah.php" method="POST">
       <div class="form-group">
-        <label>Nomor Rumah *</label>
-        <input type="text" name="nomor_rumah" placeholder="Contoh: 7, A5..." required>
+        <label>Nomor Rumah </label>
+        <input type="text" name="nomor_rumah" placeholder="Contoh: 7..." required>
       </div>
       <div class="form-group">
-        <label>Nama Pemilik *</label>
-        <input type="text" name="nama_pemilik" placeholder="Nama pemilik rumah" required>
+        <label>Nama </label>
+        <input type="text" name="nama_pemilik" placeholder="Nama pemilik rumah..." required>
       </div>
       <div class="form-group">
-        <label>Blok — Opsional</label>
-        <input type="text" name="blok" placeholder="Contoh: Blok A, Cluster B">
+        <label>Blok </label>
+        <input type="text" name="blok" placeholder="Contoh: Blok A, B..." required>
       </div>
-      <button type="submit" class="btn btn-primary">Simpan Rumah</button>
+      <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
   </div>
 

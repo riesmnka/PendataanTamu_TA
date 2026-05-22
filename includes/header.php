@@ -21,16 +21,28 @@ if (!isset($_SESSION['admin_id'])) {
 
     <aside class="sidebar">
         <div class="logo">
-            <h2>Sistem Pendataan Tamu</h2>
+            <h2>Perumahan Graha Family</h2>
             <span>Pos Keamanan</span>
         </div>
         <nav>
-            <a href="/TugasAkhir/index.php">Dashboard</a>
-            <a href="/TugasAkhir/input_tamu.php">Data Tamu</a>
-            <a href="/TugasAkhir/scan.php">Scan Barcode</a>
-            <a href="/TugasAkhir/kunjungan.php">Data Kunjungan</a>
-            <a href="/TugasAkhir/master_rumah.php">Data Rumah</a>
-            <a href="/TugasAkhir/laporan.php">Laporan</a>
+    <?php
+    $current = basename($_SERVER['PHP_SELF']);
+    ?>
+        <nav>
+            <a href="/TugasAkhir/index.php" 
+                class="<?php echo $current == 'index.php' ? 'active' : ''; ?>">Home</a>
+            <a href="/TugasAkhir/input_tamu.php" 
+                class="<?php echo $current == 'input_tamu.php' ? 'active' : ''; ?>">Data Tamu</a>
+            <a href="/TugasAkhir/scan.php" 
+                class="<?php echo $current == 'scan.php' ? 'active' : ''; ?>">Scan Barcode</a>
+            <a href="/TugasAkhir/kunjungan.php" 
+                class="<?php echo ($current == 'kunjungan.php' || $current == 'edit_kunjungan.php') ? 'active' : ''; ?>">Data Kunjungan</a>
+            <a href="/TugasAkhir/master_rumah.php" 
+                class="<?php echo $current == 'master_rumah.php' ? 'active' : ''; ?>">Data Rumah</a>
+            <a href="/TugasAkhir/laporan.php" 
+                class="<?php echo $current == 'laporan.php' ? 'active' : ''; ?>">Laporan</a>
+            <a href="/TugasAkhir/kelola_admin.php" 
+                class="<?php echo $current == 'kelola_admin.php' ? 'active' : ''; ?>">Kelola Admin</a>
         </nav>
         <div class="sidebar-user">
             <div class="user-info">

@@ -4,20 +4,20 @@ include 'includes/header.php';
 ?>
 
 <p class="page-title">Scan Barcode</p>
-<p class="page-subtitle">Scan barcode tamu untuk mencatat waktu keluar</p>
+<p class="page-subtitle">Scan sebagai bukti keluar</p>
 
 <?php if (isset($_GET['status'])): ?>
   <?php if ($_GET['status'] == 'tidak_ditemukan'): ?>
     <div class="alert alert-error">❌ Kode tidak ditemukan. Pastikan barcode terbaca dengan benar.</div>
   <?php elseif ($_GET['status'] == 'sudah_keluar'): ?>
-    <div class="alert alert-error">⚠️ Tamu ini sudah tercatat keluar sebelumnya.</div>
+    <div class="alert alert-error">⚠️ Sudah tercatat keluar.</div>
   <?php endif; ?>
 <?php endif; ?>
 
 <div class="card">
   <h3>Input Kode Barcode</h3>
   <p style="font-size:13px; color:#888; margin-bottom:16px">
-    Arahkan scanner ke barcode tamu, atau ketik kode kunjungan secara manual.
+    Scan barcode atau ketik kode kunjungan secara manual.
   </p>
   <form action="/TugasAkhir/proses/checkout.php" method="POST">
     <div class="form-group">

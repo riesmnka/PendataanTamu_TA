@@ -22,11 +22,11 @@ if (!$data) {
   exit;
 }
 
-// Hitung durasi kunjungan
 $masuk  = new DateTime($data['waktu_masuk']);
 $keluar = new DateTime($data['waktu_keluar']);
 $durasi = $masuk->diff($keluar);
-$durasi_text = $durasi->h . ' jam ' . $durasi->i . ' menit';
+$total_jam = ($durasi->days * 24) + $durasi->h;
+$durasi_text = $total_jam . ' jam ' . $durasi->i . ' menit';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -119,10 +119,29 @@ $durasi_text = $durasi->h . ' jam ' . $durasi->i . ' menit';
     .btn-secondary { background: #6c757d; color: #fff; }
 
     @media print {
-      body { background: #fff; padding: 0; display: block; }
-      .panel { display: none; }
-      .struk { border: none; width: 100%; }
+      @page {
+        width: 80mm;
+        height: auto;
+        margin: 0;
+      }
+
+    body {
+      background: #fff;
+      padding: 0;
+      margin: 0;
+      display: block;
+      width: 80mm;
     }
+
+    .panel { display: none; }
+    .struk {
+      border: none;
+      width: 80mm;
+      padding: 8px;
+      margin: 0;
+      font-size: 11px;
+    }
+  }
   </style>
 </head>
 <body>
@@ -181,7 +200,7 @@ $durasi_text = $durasi->h . ' jam ' . $durasi->i . ' menit';
 <div class="panel">
   <h3>🖨️ Cetak Bukti Keluar</h3>
   <p style="font-size:13px; color:#888; margin-bottom:16px">
-    Cetak dan simpan sebagai arsip petugas.
+    Sebagai arsip petugas.
   </p>
   <button class="btn btn-primary" onclick="window.print()">🖨️ Cetak Sekarang</button>
   <a href="/TugasAkhir/scan.php" class="btn btn-secondary">← Scan Berikutnya</a>
