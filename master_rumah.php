@@ -15,10 +15,12 @@ $query = mysqli_query($conn, "SELECT * FROM rumah ORDER BY CAST(nomor_rumah AS U
     <div class="alert alert-error">❌ Nomor rumah sudah ada!</div>
   <?php elseif ($_GET['status'] == 'nama_duplikat'): ?>
     <div class="alert alert-error">❌ Nama pemilik sudah ada!</div>
-  <?php elseif ($_GET['status'] == 'nomor_salah'): ?>
-    <div class="alert alert-error">❌ Nomor rumah tidak valid!</div>
+  <?php elseif ($_GET['status'] == 'nomor_duplikat'): ?>
+    <div class="alert alert-error">❌ Nomor rumah sudah ada!</div>
   <?php elseif ($_GET['status'] == 'nama_salah'): ?>
     <div class="alert alert-error">❌ Nama pemilik tidak valid!</div>
+  <?php elseif ($_GET['status'] == 'nomor_salah'): ?>
+    <div class="alert alert-error">❌ Nomor rumah tidak valid!</div>
   <?php elseif ($_GET['status'] == 'hapus'): ?>
     <div class="alert alert-success">✅ Berhasil dihapus!</div>
   <?php elseif ($_GET['status'] == 'tidak_bisa_hapus'): ?>

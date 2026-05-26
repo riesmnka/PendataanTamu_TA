@@ -14,6 +14,7 @@ if (!isset($_SESSION['admin_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Pendataan Tamu</title>
     <link rel="stylesheet" href="/TugasAkhir/assets/style.css">
+    <script src="/TugasAkhir/assets/script.js"></script>
 </head>
 <body>
 
